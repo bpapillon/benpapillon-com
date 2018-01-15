@@ -1,0 +1,7 @@
+deployment:
+  prod:
+    branch: master
+    commands:
+      - aws s3 sync src s3://benpapillon.com/ --delete
+      - aws configure set preview.cloudfront true
+      - aws cloudfront create-invalidation --distribution-id $BENPAPILLONCOM_CLOUDFRONT_DISTRIBUTION_ID --paths '/*'
