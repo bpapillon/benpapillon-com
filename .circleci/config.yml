@@ -17,6 +17,3 @@ workflows:
     jobs:
       - deploy:
           context: aws
-          filters:
-            branches:
-              only: master
